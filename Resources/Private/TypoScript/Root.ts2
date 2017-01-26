@@ -1,0 +1,21 @@
+prototype(TYPO3.Neos:Page) {
+    reCaptchaGoogleJavaScript = TYPO3.TypoScript:Tag {
+        @position = 'before closingHeadTag'
+
+        tagName = 'script'
+        attributes {
+            src = 'https://www.google.com/recaptcha/api.js'
+        }
+    }
+    reCaptchaJavaScript = TYPO3.TypoScript:Tag {
+        @position = 'before closingBodyTag'
+        #@if.as = ${false}
+
+        tagName = 'script'
+        attributes {
+            src = TYPO3.TypoScript:ResourceUri {
+                path = 'resource://Gerdemann.ReCAPTCHA/Public/JavaScript/ReCAPTCHA.js'
+            }
+        }
+    }
+}
