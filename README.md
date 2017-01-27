@@ -21,3 +21,8 @@ How-To:
         options:
           secret: 'ENTER_HERE_YOUR_SHARED_SECRET
   ```
+  
+License
+-------
+
+The MIT License (MIT). Please see [LICENSE](LICENSE) for more information.
