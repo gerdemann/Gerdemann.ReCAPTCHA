@@ -1,21 +1,17 @@
-TYPO3:
+Neos:
   Form:
     presets:
       default:
-        stylesheets: []
-        javaScripts:
-          'Gerdemann.ReCAPTCHA': 'https://www.google.com/recaptcha/api.js'
         formElementTypes:
           'Gerdemann.ReCAPTCHA:ReCAPTCHA':
             superTypes:
-              'TYPO3.Form:FormElement': TRUE
+              'Neos.Form:FormElement': true
             renderingOptions:
               templatePathPattern: 'resource://Gerdemann.ReCAPTCHA/Private/Form/ReCAPTCHA.html'
         validatorPresets:
           'Gerdemann.ReCAPTCHA:ReCAPTCHA':
-            implementationClassName: 'Gerdemann\ReCAPTCHA\Validation\ReCAPTCHAValidator'
-
+            implementationClassName: Gerdemann\ReCAPTCHA\Validation\ReCAPTCHAValidator
   Neos:
-    typoScript:
+    fusion:
       autoInclude:
-        'Gerdemann.ReCAPTCHA': TRUE
+        Gerdemann.ReCAPTCHA: true

@@ -1,9 +1,9 @@
 <?php
 namespace Gerdemann\ReCAPTCHA\Validation;
 
-use TYPO3\Flow\Http\Client\Browser;
-use TYPO3\Flow\Http\Client\CurlEngine;
-use TYPO3\Flow\Validation\Validator\AbstractValidator;
+use Neos\Flow\Http\Client\Browser;
+use Neos\Flow\Http\Client\CurlEngine;
+use Neos\Flow\Validation\Validator\AbstractValidator;
 
 /**
  * ReCAPTCHA Validator
