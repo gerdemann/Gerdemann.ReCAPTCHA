@@ -1,6 +1,6 @@
 var formsCollection = document.getElementsByTagName("form");
 var reCAPTCHAexecute = true;
-var submitButton;
+var submitElement;
 
 for(var i = 0; i < formsCollection.length; i++) {
     if (formsCollection[i].querySelector('.recaptcha') != null) {
@@ -16,8 +16,8 @@ function onReCAPTCHAFormSubmit(e) {
     if (reCAPTCHAexecute) {
         e.preventDefault();
 
-        var submitButtons = document.getElementsByName('--' + e.target.id + '[__currentPage]');
-        submitButton = submitButtons[0];
+        var submitElements = document.getElementsByName('--' + e.target.id + '[__currentPage]');
+        submitElement = submitElements[0];
         reCAPTCHAexecute = false;
 
         grecaptcha.execute();
@@ -35,5 +35,9 @@ function onReCAPTCHASubmit() {
     reCAPTCHAFormElement.value = reCAPTCHAElement.value;
     parentReCAPTCHAElement.removeChild(reCAPTCHAElement);
 
-    submitButton.click();
+    form = submitElement;
+    while (form.nodeName != "FORM" && form.parentNode) {
+        form = form.parentNode;
+    }
+    form.submit();
 }
