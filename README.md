@@ -22,6 +22,21 @@ How-To:
           secret: 'ENTER_HERE_YOUR_SHARED_SECRET
   ```
 
+Settings:
+-----------
+
+You can predefine default values for `secret` and `sitekey` in
+`Settings.yaml`. If no specific values are given in the form the
+captcha-element will fallback to those values.
+
+  ```
+ Gerdemann:
+   ReCAPTCHA:
+     sitekey: ~
+     secret: ~
+  ```
+
+
 Hint:
 -------
 

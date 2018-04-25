@@ -4,6 +4,7 @@ Neos:
       default:
         formElementTypes:
           'Gerdemann.ReCAPTCHA:ReCAPTCHA':
+            implementationClassName: Gerdemann\ReCAPTCHA\FormElements\ReCAPTCHAFormElement
             superTypes:
               'Neos.Form:FormElement': true
             renderingOptions:
@@ -15,3 +16,8 @@ Neos:
     fusion:
       autoInclude:
         Gerdemann.ReCAPTCHA: true
+
+Gerdemann:
+  ReCAPTCHA:
+    sitekey: ~
+    secret: ~
