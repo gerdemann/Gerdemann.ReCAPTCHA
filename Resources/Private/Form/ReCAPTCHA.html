@@ -1,5 +1,5 @@
 <div class="g-recaptcha"
-     data-sitekey="{element.properties.sitekey}"
+     data-sitekey="{f:if(condition: element.properties.sitekey, then: element.properties.sitekey, else: element.sitekey)}"
      data-callback="onReCAPTCHASubmit"
      data-size="invisible">
 </div>

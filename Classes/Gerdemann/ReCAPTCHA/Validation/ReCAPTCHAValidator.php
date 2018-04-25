@@ -1,6 +1,7 @@
 <?php
 namespace Gerdemann\ReCAPTCHA\Validation;
 
+use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Http\Client\Browser;
 use Neos\Flow\Http\Client\CurlEngine;
 use Neos\Flow\Validation\Validator\AbstractValidator;
@@ -11,10 +12,16 @@ use Neos\Flow\Validation\Validator\AbstractValidator;
 class ReCAPTCHAValidator extends AbstractValidator
 {
     /**
+     * @var string
+     * @Flow\InjectConfiguration(package="Gerdemann.ReCAPTCHA", path="secret")
+     */
+    protected $secret;
+    
+    /**
      * @var array
      */
     protected $supportedOptions = array(
-        'secret' => array('', ' The shared key between your site and reCAPTCHA', 'string', true)
+        'secret' => array('', ' The shared key between your site and reCAPTCHA', 'string', false)
     );
 
     /**
@@ -27,7 +34,7 @@ class ReCAPTCHAValidator extends AbstractValidator
         $browser = new Browser();
         $browser->setRequestEngine(new CurlEngine());
         $arguments = array(
-            'secret' => $this->getOptions()['secret'],
+            'secret' => $this->getOptions()['secret'] ? $this->getOptions()['secret'] : $this->secret,
             'response' => $value
         );
         $response = $browser->request('https://www.google.com/recaptcha/api/siteverify', 'POST', $arguments);
