@@ -19,7 +19,7 @@ How-To:
     validators:
       - identifier: 'Gerdemann.ReCAPTCHA:ReCAPTCHA'
         options:
-          secret: 'ENTER_HERE_YOUR_SHARED_SECRET
+          secret: 'ENTER_HERE_YOUR_SHARED_SECRET'
   ```
 
 Settings:
