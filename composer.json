@@ -4,7 +4,7 @@
     "description": "Neos plugin for Google reCAPTCHA",
     "license": "MIT",
     "require": {
-        "typo3/neos": "^3.0 || ^4.0"
+        "neos/neos": "^3.0 || ^4.0"
     },
     "autoload": {
         "psr-0": {
