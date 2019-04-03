@@ -43,7 +43,7 @@ function onReCAPTCHASubmit() {
     var currentPage = form.createElement('input');
     currentPage.type = 'hidden';
     currentPage.name = submitElement.name;
-    currentPage.value = submitElement.value
+    currentPage.value = submitElement.value;
     
     form.submit();
 }
