@@ -40,10 +40,11 @@ function onReCAPTCHASubmit() {
         form = form.parentNode;
     }
     
-    var currentPage = form.createElement('input');
+    var currentPage = document.createElement('input');
     currentPage.type = 'hidden';
     currentPage.name = submitElement.name;
     currentPage.value = submitElement.value;
+    form.appendChild(currentPage);
     
     form.submit();
 }
