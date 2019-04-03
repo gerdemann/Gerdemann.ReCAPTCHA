@@ -39,5 +39,11 @@ function onReCAPTCHASubmit() {
     while (form.nodeName != "FORM" && form.parentNode) {
         form = form.parentNode;
     }
+    
+    var currentPage = form.createElement('input');
+    currentPage.type = 'hidden';
+    currentPage.name = submitElement.name;
+    currentPage.value = submitElement.value
+    
     form.submit();
 }
