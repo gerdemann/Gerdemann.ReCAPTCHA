@@ -17,6 +17,7 @@ How-To:
     properties:
       sitekey: 'ENTER_HERE_YOUR_SITEKEY'
     validators:
+      - identifier: 'Neos.Flow:NotEmpty'
       - identifier: 'Gerdemann.ReCAPTCHA:ReCAPTCHA'
         options:
           secret: 'ENTER_HERE_YOUR_SHARED_SECRET'
