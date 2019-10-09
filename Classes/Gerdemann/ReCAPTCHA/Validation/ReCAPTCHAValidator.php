@@ -1,6 +1,7 @@
 <?php
 namespace Gerdemann\ReCAPTCHA\Validation;
 
+use GuzzleHttp\Psr7\Uri;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Http\Client\Browser;
 use Neos\Flow\Http\Client\CurlEngine;
@@ -16,7 +17,7 @@ class ReCAPTCHAValidator extends AbstractValidator
      * @Flow\InjectConfiguration(package="Gerdemann.ReCAPTCHA", path="secret")
      */
     protected $secret;
-    
+
     /**
      * @var array
      */
@@ -33,12 +34,12 @@ class ReCAPTCHAValidator extends AbstractValidator
     {
         $browser = new Browser();
         $browser->setRequestEngine(new CurlEngine());
-        $arguments = array(
-            'secret' => $this->getOptions()['secret'] ? $this->getOptions()['secret'] : $this->secret,
-            'response' => $value
-        );
-        $response = $browser->request('https://www.google.com/recaptcha/api/siteverify', 'POST', $arguments);
-        $responseArray = json_decode($response->getContent(), true);
+
+        $uri = new Uri('https://www.google.com/recaptcha/api/siteverify');
+        $uri = $uri->withQueryValue($uri, 'secret', $this->getOptions()['secret'] ? $this->getOptions()['secret'] : $this->secret);
+        $uri = $uri->withQueryValue($uri, 'response', $value);
+        $response = $browser->request((string)$uri);
+        $responseArray = json_decode($response->getBody()->getContents(), true);
         if (!$responseArray['success']) {
             $this->addError('Captcha failed. Please try again.', 1485462189);
         }

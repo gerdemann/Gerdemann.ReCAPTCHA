@@ -6,7 +6,7 @@ Neos plugin for Google reCAPTCHA
 How-To:
 -------
 
-* Install the package to ``Packages/Plugin/Gerdemann.ReCAPTCHA`` (e.g. via ``composer require gerdemann/recaptcha:~2.0``)
+* Install the package to ``Packages/Plugin/Gerdemann.ReCAPTCHA`` (e.g. via ``composer require gerdemann/recaptcha``)
 * Get your sitekey and shared secret at https://www.google.com/recaptcha/admin
 * Add the reCAPTCHA element to your form:
 
